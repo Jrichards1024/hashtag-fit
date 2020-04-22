@@ -41,8 +41,9 @@
             <div class= "message-caption">
               <p>{{caption}}</p>
             </div>
+            {{#each hashtag}}
             <div class= "message-hashtag">
-              <a href= "/hashtags/{{hashtag}}"> {{hashtag}} </a>
+              <a href= "/hashtags/{{hashtag}}"> #{{hashtag}} </a>
             </div>
             <div class="message-timestamp">
               Posted on {{createdAt}}

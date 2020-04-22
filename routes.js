@@ -47,7 +47,12 @@ router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
   let url = req.file.location
   console.log(url)
   let hashtag = req.body.hashtag
-
+  hashtag = hashtag.split(" ")
+  for (let element of hashtag) {
+    element = element.slice(1,element.length)
+  }
+  console.log("this is hashtag")
+  console.log(hashtag)
 
 //  console.log("this is hashtag")
 //  console.log(hashtag)
