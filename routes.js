@@ -44,6 +44,8 @@ router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
   console.log("this is the req file stuff")
   console.log(req.body.fileToUpload.location)
   console.log("above is req body file to upload")
+  console.log("req.file")
+  console.log(req.file)
   let caption = req.body.caption
   console.log("below is req.file.location")
   console.log(req.file.location)
