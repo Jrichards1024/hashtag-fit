@@ -41,9 +41,14 @@ router.get('/hashtags/:id',async(req,res) =>{
 
 })
 router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
+  console.log("this is the req file stuff")
+  console.log(req.body.fileToUpload.location)
+  console.log("above is req body file to upload")
   let caption = req.body.caption
-  let url = req.file.location
+  console.log("below is req.file.location")
   console.log(req.file.location)
+  let url = req.file.location
+  console.log(url)
   let hashtag = req.body.hashtag
 
 
