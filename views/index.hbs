@@ -16,6 +16,7 @@
 <div class="container">
       <h1>Welcome {{user.firstName}} {{user.lastName}}!</h1>
 
+    <form id="video-form" method="POST" action="/image-upload">
       Select image to upload:
       <input key = "video" type="file" name="fileToUpload" accept="video/*">
       <input key = "caption" type = "text" name="caption">
