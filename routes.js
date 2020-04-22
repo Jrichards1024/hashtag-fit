@@ -42,16 +42,16 @@ router.get('/hashtags/:id',async(req,res) =>{
 })
 router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
   let caption = req.body.caption
-  console.log("below is req.file.location")
-  console.log(req.file.location)
   let url = req.file.location
-  console.log(url)
   let hashtag = req.body.hashtag
+  console.log("hashtag before split")
+  console.log(hashtag)
   hashtag = hashtag.split(" ")
   for (let element of hashtag) {
     element = element.slice(1,element.length)
   }
-  console.log("this is hashtag")
+  console.log("im not sure why this is happening")
+  console.log("this is hashtag after split")
   console.log(hashtag)
 
 //  console.log("this is hashtag")
