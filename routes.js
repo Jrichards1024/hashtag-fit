@@ -49,6 +49,7 @@ router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
   hashtag = hashtag.split(" ")
   for (let element of hashtag) {
     element = element.slice(1,element.length)
+    console.log(element)
   }
   console.log("im not sure why this is happening")
   console.log("this is hashtag after split")

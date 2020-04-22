@@ -27,6 +27,7 @@ class Message extends Model {
         id: {type:'integer'},
         userId: { type: 'integer' },
         imageLink: {type:'string'},
+        hashtag: {type:'array'},
         caption: { type: 'string', minLength: 1 }
       }
     };
