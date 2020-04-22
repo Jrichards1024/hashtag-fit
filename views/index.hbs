@@ -16,7 +16,7 @@
 <div class="container">
     <h1>Welcome {{user.firstName}} {{user.lastName}}!</h1>
     Select video to upload:
-    <form id="video-form" method="POST" action="/image-upload">
+    <form method="post" action="/image-upload" enctype="multipart/form-data">
       <input key = "video" type="file" name="fileToUpload" accept="video/*">
       <input key = "caption" type = "text" name="caption" placeholder="caption">
       <input key = "hashtag" type = "text" name="hashtag" placeholder="hashtag">
