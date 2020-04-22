@@ -69,12 +69,13 @@ router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
       return res.status(422).send[{errors: [{title: "file upload error", details: err.message}]}]
     }
     let messages = await Message.query().insert({
-      user_id: req.session.userId,
+      userId: req.session.userId,
+      userName: await User.query().select('userName').where('user_id',userId),
       imageLink: url,
       caption: caption,
       hashtag: newHashtag,
     });
-    console.log("this is messages")
+    console.log("this is messages with userName quality")
     console.log(messages)
     res.redirect('/')
     // res.redirect('/')

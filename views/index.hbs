@@ -33,6 +33,9 @@
       <ol class="message-list">
         {{#each messages}}
           <li>
+            <div class="username">
+              <a href="/profile/{{userId}}">userName</a>
+            </div>
             <div class="message-body">
               <video height= "300" width= "300" controls>
               <source src={{imageLink}} type="video/mp4">
