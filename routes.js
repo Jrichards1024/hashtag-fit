@@ -47,13 +47,15 @@ router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
   console.log("hashtag before split")
   console.log(hashtag)
   hashtag = hashtag.split(" ")
+  newHashtag =[];
   for (let element of hashtag) {
     element = element.slice(1,element.length)
     console.log(element)
+    newHashtag.push(element)
   }
   console.log("im not sure why this is happening")
   console.log("this is hashtag after split")
-  console.log(hashtag)
+  console.log(newHashtag)
 
 //  console.log("this is hashtag")
 //  console.log(hashtag)
@@ -70,7 +72,7 @@ router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
       user_id: req.session.userId,
       imageLink: url,
       caption: caption,
-      hashtag: hashtag,
+      hashtag: newHashtag,
     });
     console.log("this is messages")
     console.log(messages)
