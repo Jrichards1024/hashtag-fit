@@ -49,6 +49,6 @@ app.use(loadUser);
 let routes = require('./routes');
 app.use('/', routes);
 
-app.listen(8000, () => {
-  console.log("listening on Port 8000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log("listening on Port 3000");
 });
