@@ -1,0 +1,22 @@
+<h1>#{{tag}}</h1>
+<ol class = "message-list">
+  {{#each messages}}
+  <li>
+      <div class="message-body">
+        <video height= "300" width= "300" controls>
+        <source src={{imageLink}} type="video/mp4">
+        </video>
+      </div>
+      <div class= "message-caption">
+        <p>{{caption}}</p>
+      </div>
+      {{!-- <div class= "message-hashtag">
+        <a href= "/hashtags"> {{hashtag}} </a>
+      </div> --}}
+      <div class="message-timestamp">
+        Posted on {{createdAt}}
+      </div>
+    </li>
+  {{/each}}
+      </ol>
+</ol>
