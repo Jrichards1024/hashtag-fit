@@ -72,6 +72,9 @@ router.post('/message/:id/comments', async (req,res)=> {
   console.log("this is the type for message id")
   messageId = parseInt(messageId)
   console.log(typeof messageId)
+  let test = await messageInfo.query().select('*')
+  console.log("this is a test")
+  console.log(test)
 
   // let message = await Message.query().findById(messageId)
 
