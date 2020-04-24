@@ -28,15 +28,15 @@ router.get('/', async (request,response)=>{
     // console.log("------userMessage-----")
     // console.log(userMessage)
     //MessageCombineInfo is the messages table to the comments(messageinfo) table
-    // let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
-    // console.log("-------messageCombineInfo------")
-    // console.log(messageCombineInfo)
+    let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
+    console.log("-------messageCombineInfo------")
+    console.log(messageCombineInfo)
 
 
     // let message = await Message.query().select('*')
     // console.log("this is message" + message)
     // userMessage,messageCombineInfo
-    response.render('index', { user: request.user, messages, style: "style.css",newMessages});
+    response.render('index', { user: request.user, messages, style: "style.css",newMessages,messageCombineInfo});
     // response.render('index', { messages});
   }
   else {
@@ -87,11 +87,11 @@ router.post('/message/:id/comments', async (req,res)=> {
   console.log("this is new comment")
   console.log(newComment)
 
-  let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
-  console.log("-------messageCombineInfo------")
-  console.log(messageCombineInfo)
-  res.render('index',{messageCombineInfo})
-  // res.redirect('/')
+  // let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
+  // console.log("-------messageCombineInfo------")
+  // console.log(messageCombineInfo)
+  // res.render('index',{messageCombineInfo})
+  res.redirect('/')
 })
 router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
   let caption = req.body.caption
