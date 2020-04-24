@@ -28,9 +28,9 @@ router.get('/', async (request,response)=>{
     // console.log("------userMessage-----")
     // console.log(userMessage)
     //MessageCombineInfo is the messages table to the comments(messageinfo) table
-    let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
-    console.log("-------messageCombineInfo------")
-    console.log(messageCombineInfo)
+    // let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
+    // console.log("-------messageCombineInfo------")
+    // console.log(messageCombineInfo)
 
 
     // let message = await Message.query().select('*')
@@ -82,7 +82,12 @@ router.post('/message/:id/comments', async (req,res)=> {
 
   console.log("this is new comment")
   console.log(newComment)
-  res.redirect('/')
+
+  let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
+  console.log("-------messageCombineInfo------")
+  console.log(messageCombineInfo)
+  res.render('index',{messageCombineInfo})
+  // res.redirect('/')
 })
 router.post('/image-upload',upload.single('fileToUpload'), (req,res) => {
   let caption = req.body.caption
