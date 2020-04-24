@@ -73,12 +73,12 @@ router.post('/message/:id/comments', async (req,res)=> {
   messageId = parseInt(messageId)
   console.log(typeof messageId)
 
-  let message = await Message.query().findById(messageId)
+  // let message = await Message.query().findById(messageId)
 
   let newComment = await messageInfo.query().insert({
     comments:comment,
     userId: req.session.userId,
-    messageId: messageId
+    messageId: messageId,
   });
 
   console.log("this is new comment")

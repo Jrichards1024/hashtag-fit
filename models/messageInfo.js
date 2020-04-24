@@ -49,7 +49,7 @@ class messageInfo extends Model {
         userId: { type: 'integer' },
         messageId: {type: 'integer'},
         userName: {type: 'string'},
-        comments: {type:'string'},
+        comments: {type:'stringe'},
         likes: {type:'integer'},
       }
     };
