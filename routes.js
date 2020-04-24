@@ -24,9 +24,9 @@ router.get('/', async (request,response)=>{
     console.log("-----------the variable new messages---------")
     console.log(newMessages)
     //userMessage connects the Message info table to the Users table
-    let userMessage = await messageInfo.query().withGraphFetched('userCombineMessageInfo')
-    console.log("------userMessage-----")
-    console.log(userMessage)
+    // let userMessage = await messageInfo.query().withGraphFetched('userCombineMessageInfo')
+    // console.log("------userMessage-----")
+    // console.log(userMessage)
     //MessageCombineInfo is the messages table to the comments(messageinfo) table
     let messageCombineInfo = await messageInfo.query().withGraphFetched('messageCombineMessageInfo')
     console.log("-------messageCombineInfo------")
