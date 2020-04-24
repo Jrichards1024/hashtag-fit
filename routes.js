@@ -36,7 +36,7 @@ router.get('/', async (request,response)=>{
     // let message = await Message.query().select('*')
     // console.log("this is message" + message)
     // userMessage,messageCombineInfo
-    response.render('index', { user: request.user, messages, style: "style.css"});
+    response.render('index', { user: request.user, messages, style: "style.css",newMessages});
     // response.render('index', { messages});
   }
   else {
