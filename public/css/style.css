@@ -1,0 +1,44 @@
+body {
+  background-color: rgb(180, 51, 12);
+}
+.postbox {
+  /* outline: 5px solid green;
+  outline-color: black; */
+  border:1px solid black;
+  background-color: rgb(231, 205, 205);
+  /* border-top-color: white; */
+  /* align-content: center; */
+  /* background-color: lightgrey; */
+
+}
+.containerindex {
+  background-color: white;
+  content: center;
+}
+/* .makefont {
+  font-style: italic;
+} */
+.idk {
+  background-color: white;
+}
+.message-list{
+  position: relative;
+}
+
+#stream {
+  background: grey;
+  /* float:left; */
+  /* padding-right: 100px; */
+}
+.cards {
+  padding-right: 50px;
+  align-content: center;
+}
+#username {
+  color: rgb(180, 51, 12);
+  font-family: monospace;
+  font-size: x-large;
+}
+#username:hover{
+  color: white;
+}
