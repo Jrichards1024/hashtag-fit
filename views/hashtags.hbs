@@ -1,5 +1,8 @@
+{{> header}}
 <h1>#{{tag}}</h1>
-<ol class = "message-list">
+<button type = button><a href = "/">Back to Feed</a></button>
+<div class= "containerindex">
+<ol class="postbox" class = "message-list">
   {{#each messages}}
   <li>
       <div class="message-body">
@@ -19,4 +22,4 @@
     </li>
   {{/each}}
       </ol>
-</ol>
+</div>

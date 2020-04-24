@@ -1,11 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <h1>{{user.userName}}</h1>
+{{> header}}
+<div style="background-color: white;">
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(189, 112, 112);">
+  <h1 style="font-style: italic;">{{user.userName}}</h1>
 </nav>
 <button type = button><a href = "/">Back to Feed</a></button>
+</div>
+<div class="idk">
 <h2>Your Posts!</h2>
 
 
-      <ul class="message-list">
+      <ul>
         {{#each messages}}
           <li>
             <div class="message-body">
@@ -25,3 +29,4 @@
           </li>
         {{/each}}
       </ul>
+      </div>

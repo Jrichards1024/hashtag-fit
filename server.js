@@ -20,6 +20,7 @@ if (process.env.EXPRESS_SESSION_SECRET) {
 } else {
   app.set('session-secret', 'this-is-a-bad-secret');
 }
+app.use(express.static('public'));
 
 app.set('view engine', 'hbs');
 app.engine('hbs', handlebars({

@@ -16,6 +16,39 @@ class Message extends Model {
     return 'messages';
   }
 
+  static get relationMappings() {
+    let User = require('./User');
+    let messageInfo = require('./messageInfo');
+
+    return {
+
+      messageCombineMessageInfo: {
+        relation: Model.HasManyRelation,
+        modelClass: messageInfo,
+        join: {
+          from: 'messages.id',
+          to: 'messageInfo.message_id'
+        }
+      },
+      userInfo: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: User,
+        join: {
+          from: 'messages.user_id',
+          to: 'users.id'
+        }
+      },
+      messageInfoTwo: {
+        relation: Model.HasManyRelation,
+        modelClass: messageInfo,
+        join: {
+          from: 'messages.user_id',
+          to: 'messageInfo.user_id'
+        }
+      },
+    }
+  }
+
   static get jsonSchema() {
     return {
       type: 'object',
@@ -26,9 +59,8 @@ class Message extends Model {
       properties: {
         id: {type:'integer'},
         userId: { type: 'integer' },
-        userName: {type: 'string'},
         imageLink: {type:'string'},
-        hashtag: {type:'array'},
+        hashtag: {type:'string'},
         caption: { type: 'string', minLength: 1 }
       }
     };

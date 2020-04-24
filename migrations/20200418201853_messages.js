@@ -3,8 +3,8 @@ exports.up = function(knex) {
     table.increments('id').primary();
     table.integer('user_id').unsigned();
     table.foreign("user_id").references('id').inTable("users")
-    table.text('user_name').unsigned();
-    table.foreign('user_name').references('user_name').inTable('users')
+    table.text("user_name").unsigned();
+    table.foreign("user_name").references('user_name').inTable("users")
     table.text('image_link').notNullable();
     table.text('caption');
     table.text('hashtag').notNullable();

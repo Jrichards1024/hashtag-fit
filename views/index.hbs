@@ -1,11 +1,11 @@
-
+{{> header}}
   {{#if user}}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   {{!-- <a class="navbar-brand" href="#">Navbar</a> --}}
   {{!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> --}}
-  <button type = "button"><a href ="/my-profile/{{user.id}}">My Profile</a></button>
+  <button class="col-med-8" type = "button"><a href ="/my-profile/{{user.id}}">My Profile</a></button>
   <button type = "button"><a href ="/sign-in">sign-out</a></button>
 
   {{!-- <form class="form-signout" action="/sign-out" method="POST">
@@ -13,7 +13,7 @@
   </form> --}}
 </nav>
 
-<div class="container">
+<div class="containerindex">
     <h1>Welcome {{user.firstName}} {{user.lastName}}!</h1>
     Select video to upload:
     <form method="post" action="/image-upload" enctype="multipart/form-data">
@@ -24,17 +24,20 @@
       </form>
 
 {{!-- accept="file_extension|audio/*|video/*|image/*|media_type" --}}
-  <div id="messages">
-    <h2>Messages</h2>
+  <div class="postbox" id="messages">
+    <h2 style="text-align: center;">Feed</h2>
+    <div class="col-lg-6" ></div>
 
     {{#unless messages}}
       <p>Sorry, no messages. :(</p>
     {{else}}
-      <ol class="message-list">
-        {{#each messages}}
-          <li>
+    {{#each newMessages}}
+      <ul style="list-style-type:none;" class="message-list" class="col-lg-6">
+        {{!-- {{#each newMessages}} --}}
+          <li class = "cards">
+            <div class="postbox" id= "stream">
             <div class="username">
-              <a href="/profile/{{userId}}">userName</a>
+              <a id= "username" href="/my-profile/{{userId}}">{{userInfo.userName}}</a>
             </div>
             <div class="message-body">
               <video height= "300" width= "300" controls>
@@ -44,20 +47,60 @@
             <div class= "message-caption">
               <p>{{caption}}</p>
             </div>
-            {{#each hashtag}}
-            <div class= "message-hashtag">
-              <a href= "/hashtags/{{this}}"> #{{this}} </a>
+            {{!-- {{#each hashtag}} --}}
+            <div  class= "message-hashtag">
+              <a href= "/hashtags/{{hashtag}}"> #{{hashtag}} </a>
             </div>
-            {{/each}}
+            {{!-- {{/each}} --}}
             <div class="message-timestamp">
               Posted on {{createdAt}}
             </div>
+            <div class="comments-form">
+                  {{#unless ../messageCombineInfo}}
+                    <p>No comments for this post</p>
+                  {{else}}
+                  <div class="dropdown">
+                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      See comments
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      {{#each ../messageCombineInfo}}
+                      <a class="dropdown-item" href="#">{{comments}}</a>
+                      {{/each}}
+                    </div>
+                  </div>
+                  </div>
+                    {{!-- <ol class="comment-list">
+                      {{#each ../messageCombineInfo}}
+                        <li>
+                          <div id = "commentusername">
+                            {{../userMessage.userCombineMessageInfo.userName}}
+                          </div>
+                          <div class = "comment">
+                            {{comments}}
+                          </div>
+                        </li>
+                      {{/each}}
+                    </ol> --}}
+                  {{/unless}}
+                <form id="message-form" method="POST" action="/message/{{id}}/comments">
+                  <textarea id="comment-body-input" name="comment" placeholder="Enter Comment"></textarea>
+                  <br>
+                  <button type="submit">Post Comment</button>
+                </form>
+            </div>
+
           </li>
-        {{/each}}
-      </ol>
+
+        {{!-- {{/each}} --}}
+      </ul>
+
+      {{/each}}
+      </div>
     {{/unless}}
-  </div>
-</div>
+    </div>
+
+
 
   {{else}}
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
