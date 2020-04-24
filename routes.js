@@ -226,4 +226,11 @@ router.post('/sign-in', async (request, response) => {
   }
 });
 
+router.post('/sign-out', (request, response) => {
+  request.session.userId = null;
+
+  response.redirect('/');
+});
+
+
 module.exports = router;

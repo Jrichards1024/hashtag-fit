@@ -7,6 +7,9 @@
   </button> --}}
   <button class="col-med-8" type = "button"><a href ="/my-profile/{{user.id}}">My Profile</a></button>
   <button type = "button"><a href ="/sign-in">sign-out</a></button>
+  <form class="form-signout" action="/sign-out" method="POST">
+    <button class="btn btn-large btn-danger" type="submit">Logout</button>
+  </form>
 
   {{!-- <form class="form-signout" action="/sign-out" method="POST">
     <button class="btn btn-large btn-danger" type="submit">Logout</button>
